@@ -15,7 +15,7 @@ const displayData = posts => {
         const div = document.createElement('div');
         div.classList.add('navbar-content')
         div.innerHTML = `
-            <a onclick="loadNav()" class="nav-link" href="#">${post.category_name}</a>
+            <a onclick="loadNav('${post?.category_id}')" class="nav-link" href="#">${post.category_name}</a>
         `
         navContainer.appendChild(div);
     }
@@ -24,3 +24,18 @@ const displayData = posts => {
 document.getElementById('home-btn').addEventListener('click', function () {
     loadInfo();
 })
+
+// const loadNav = async category_id => {
+//     const url = `https://openapi.programming-hero.com/api/news/category/${category_id}`;
+//     fetch(url)
+//         .then(res => res.json())
+//         .then(data => displayNavId(data.data));
+// }
+// loadNav();
+
+// const displayNavId = (allId) => {
+//     // console.log(allId)
+//     for (const id of allId) {
+//         console.log(id);
+//     }
+// }
