@@ -97,9 +97,17 @@ const displayNewsDetails = postDetails => {
     details.innerText = ``;
     for (const detail of postDetails) {
         // console.log(detail);
-        const p = document.createElement('p');
-        p.innerText = `${detail.details.slice(0, 1500)}`
-        details.appendChild(p);
+        const div = document.createElement('div');
+        div.innerHTML = `
+        <p>${detail.details.slice(0, 1500)}</p>
+        `
+        // p.innerText = `${detail.details.slice(0, 1500)}`
+        details.appendChild(div);
     }
 }
+
 loadNewsDetails();
+
+/* <div class="modal-dialog">
+            
+            </div> */
