@@ -89,7 +89,8 @@ const loadNewsDetails = (news_id) => {
     const url = `https://openapi.programming-hero.com/api/news/${news_id}`;
     fetch(url)
         .then(res => res.json())
-        .then(data => displayNewsDetails(data.data));
+        .then(data => displayNewsDetails(data.data))
+        .catch(error => console.log(error))
 };
 
 const displayNewsDetails = postDetails => {

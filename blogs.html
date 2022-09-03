@@ -143,12 +143,38 @@
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="headingThree">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                      Accordion Item #3
+                        Template Strings in JavaScript
                     </button>
                   </h2>
                   <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                      <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                      <strong>Interpolating Variables and Expressions:</strong> 
+                      We insert a variable or expression by adding a dollar sign $ and curly braces {} into the string `${variable}`.<br>
+                      
+                      As we can see it’s easy to make syntax errors with the old concatenation syntax if we have complex variables and expressions. Therefore template strings are a great improvement from what we had before.<br>
+                      
+                      If we want to use the backtick character in the content of string just put a \ before the backtick character in the string. => `will have a literal \` back tick`<br>
+                      
+                      <strong>Multiline Strings:</strong>
+                      Another great feature of template strings is that we can have strings with multiple lines for better code readability. This cannot be done in an easy way with the old style of strings. With the old style of strings, we had to concatenate each line of the string to put long strings in multiple lines.<br>
+                      As we can see, this will become really painful is we have many more lines. It’s very frustrating to have all those plus signs and divide the string into multiple lines.<br>
+                      
+                      This is much better than concatenating strings together. It takes a lot less time to write the code and a lower probability of syntax errors. It’s also much more readable.<br>
+                      
+                      Note that this method does add an actual new like to the string \n and if you don’t want the string to have multiple lines in its final format, just put a \ at the end of the line.<br>
+                      
+                      <strong>Nesting Templates:</strong>
+                      Template strings can be nested in each other. This is a great feature because many people want to create dynamic strings. Template strings allow us to nest regular strings or template strings within template strings.<br>
+                      
+                      <strong>Tagged Templates:</strong>
+                      With template strings, we can add something called tags in front of a template string. They are functions that take a string and the decomposed parts of the string as parameters. A tagged function decomposes the template string into an array as the first parameter, with each item of the array as the constant parts of the string. The additional parameters of the function are all the variables and expressions in the order in which they appear in the string.<br>
+                      
+                      Tagged templates are great for converting strings to anything you want since it’s just a regular function. However, it is a special function because the first parameter is an array containing the constant parts of the string. The rest of the parameters contain the returned values that each expression returns. This is great for manipulating the string and transforming the returned values to what we want.<br>
+                      
+                      The return value of tags can be anything you want. So we can return strings, arrays, objects, or anything else.<br>
+                      
+                      <strong>Raw Strings:</strong>
+                      Template strings have a special raw property that you can get from tags. The raw property gets us the string without escaping the special characters, hence the property is called raw. To access the raw property of a string.
                     </div>
                   </div>
                 </div>
