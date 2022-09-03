@@ -1,19 +1,7 @@
-.navbar-content{
-    padding: 0 26px;
-}
-.navbar-content:first-child {
-    padding: 0;
+body{
+    font-family: 'Poppins', sans-serif;
 }
 .author-image{
-    width: 100px;
-    height: 80px;
-}
-.author-address{
-    width: 260px;
-}
-.bottom-part{
-    width: 420px;
-}
-.view-part{
-
+    width: 80px;
+    height: 70px;
 }
