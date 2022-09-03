@@ -5,3 +5,16 @@ body{
     width: 80px;
     height: 70px;
 }
+#count-post{
+    background-color: blanchedalmond;
+    font-size: 25px;
+    margin-top: 10px;
+}
+#count-post p{
+    padding: 20px 0;
+}
+#count-post span{
+    color: #ff0055;
+    font-weight: bold;
+    font-size: 25px;
+}

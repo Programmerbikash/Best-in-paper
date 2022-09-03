@@ -8,27 +8,39 @@ const loadNavbarData = async () => {
   
   const displayNavbarData = async () => {
     // console.log(loadNavbarData());
-    const data = await loadNavbarData();
+      const data = await loadNavbarData();
     // console.log(data.data.news_category)
-    const allData = data.data.news_category;
+      const allData = data.data.news_category;
       const navContainer = document.getElementById("nav-container");
       const uniqueTitleName = [];
-    allData.forEach((singleData) => {
+      allData.forEach((singleData) => {
       if (uniqueTitleName.indexOf(singleData.category_name) === -1) {
           // console.log(singleData.category_id);
           // console.log(singleData.category_name);
           const ul = document.createElement("ul");
           ul.classList.add("navbar-nav");
           ul.innerHTML = `
-              <li onclick="loadPostId('${singleData.category_id}')" class="nav-item active mx-2 px-1">
+              <li onclick="loadPostId('${singleData.category_id ? singleData.category_id : 'no post'}')" class="nav-item active mx-2 px-1">
                   <a class="nav-link" href="#">${singleData.category_name}</a>
               </li>
         `;
-        navContainer.appendChild(ul);
-      }
+          navContainer.appendChild(ul);
+        }
     });
+    // toggleSpinner(false);
   };
 displayNavbarData();
+
+// Spinner
+const toggleSpinner = isLoading => {
+    const loadSection = document.getElementById('loader');
+    if (isLoading) {
+        loadSection.classList.remove('d-none');
+    }
+    else{
+        loadSection.classList.add('d-none');
+    }
+}
   
   const loadPostId = (category_id) => {
       const url = `https://openapi.programming-hero.com/api/news/category/${category_id}`;
@@ -39,10 +51,22 @@ displayNavbarData();
   }
   loadPostId('01');
   
-  const displayPostData = allPost => {
-      // console.log(allPost);
+const displayPostData = allPost => {
+    const totalPost = document.getElementById('count-post');
+    totalPost.innerHTML = `
+    <p>Here are <span>${allPost.length}</span> items found for category Entertainment</p>
+    `;
+    //   console.log(allPost.length);
       const mainContainer = document.getElementById('main-container');
       mainContainer.innerHTML = ``;
+      allPost = allPost.slice(0, 10);
+      const noPost = document.getElementById('no-post');
+      if (allPost.length === 0) {
+          noPost.classList.remove('d-none');
+      }
+      else {
+          noPost.classList.add('d-none');
+      }
       allPost.forEach(post => {
         //   console.log(post);
           const div = document.createElement('div');
@@ -83,6 +107,7 @@ displayNavbarData();
           `
           mainContainer.appendChild(div);
       });
+      toggleSpinner(false);
 }
 
 const loadNewsDetails = (news_id) => {
@@ -109,7 +134,3 @@ const displayNewsDetails = postDetails => {
 }
 
 loadNewsDetails();
-
-/* <div class="modal-dialog">
-            
-            </div> */
